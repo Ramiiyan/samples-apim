@@ -42,7 +42,7 @@ jobs:
         prerelease: false
 
     - name: Upload Release Asset
-      if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      if: github.event_name == 'push'
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GIT_ACTION_PAT }}
