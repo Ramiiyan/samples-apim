@@ -6,7 +6,7 @@
 	<groupId>org.wso2.carbon.test</groupId>
 	<artifactId>CustomJWTGenerator</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>bundle</packaging>
 
 	<name>CustomJWTGenerator</name>
 	<url>http://maven.apache.org</url>
@@ -25,14 +25,24 @@
 		<dependency>
 			<groupId>org.wso2.carbon.apimgt</groupId>
 			<artifactId>org.wso2.carbon.apimgt.keymgt</artifactId>
-			<version>6.1.66</version>
+			<version>9.0.174</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.wso2.carbon.apimgt</groupId>
 			<artifactId>org.wso2.carbon.apimgt.impl</artifactId>
-			<version>6.1.66</version>
+			<version>9.0.174</version>
 			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.wso2.carbon.apimgt</groupId>
+			<artifactId>org.wso2.carbon.apimgt.common.gateway</artifactId>
+			<version>9.0.174</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.platform</groupId>
+			<artifactId>org.eclipse.osgi.services</artifactId>
+			<version>3.11.0</version>
 		</dependency>
 	</dependencies>
 
@@ -48,4 +58,27 @@
 			</releases>
 		</repository>
 	</repositories>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>3.2.0</version>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+						<Bundle-Name>${project.artifactId}</Bundle-Name>
+						<Export-Package>
+							com.wso2customizations.*
+						</Export-Package>
+						<Import-Package>
+							org.wo2.carbon.apimgt.common.gateway.*,
+							*;resolution:=optional
+						</Import-Package>
+					</instructions>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
