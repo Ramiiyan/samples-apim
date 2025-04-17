@@ -29,6 +29,29 @@
         <version>3.5.100.v20160504-1419</version>
     </dependency>
 </dependencies>
+    <repositories>
+    <repository>
+        <id>wso2-nexus</id>
+        <name>WSO2 internal Repository</name>
+        <url>https://maven.wso2.org/nexus/content/groups/wso2-public/</url>
+        <releases>
+            <enabled>true</enabled>
+            <updatePolicy>daily</updatePolicy>
+            <checksumPolicy>ignore</checksumPolicy>
+        </releases>
+    </repository>
+    <repository>
+        <id>wso2.releases</id>
+        <name>WSO2 internal Repository</name>
+        <url>https://maven.wso2.org/nexus/content/repositories/releases/</url>
+        <releases>
+            <enabled>true</enabled>
+            <updatePolicy>daily</updatePolicy>
+            <checksumPolicy>ignore</checksumPolicy>
+        </releases>
+    </repository>
+    </repositories>
+
     <build>
         <plugins>
             <plugin>
