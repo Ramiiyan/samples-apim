@@ -23,7 +23,7 @@ public class CustomGatewayJWTGenerator extends APIMgtGatewayJWTGeneratorImpl {
 
     @Override
     public Map<String, Object> populateCustomClaims(JWTInfoDto jwtInfoDto) {
-
+        System.out.println("Testing..");
         Map<String, Object> claims = super.populateCustomClaims(jwtInfoDto);
         claims.put("uuid", UUID.randomUUID().toString());
         return claims;
